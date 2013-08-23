@@ -1,7 +1,7 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
-import static de.yanniks.cm_updatechecker.CommonUtilities.SENDER_ID;
-import static de.yanniks.cm_updatechecker.CommonUtilities.SERVER_URL;
+import static de.yanniks.cyandream.CommonUtilities.SENDER_ID;
+import static de.yanniks.cyandream.CommonUtilities.SERVER_URL;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -12,7 +12,7 @@
     http://commonsware.com/Android
  */
 
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
 import android.app.DownloadManager;
 import android.app.Fragment;

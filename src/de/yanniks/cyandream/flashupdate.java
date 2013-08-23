@@ -1,4 +1,4 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

@@ -1,6 +1,6 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
-import de.yanniks.cm_updatechecker.R;
+import de.yanniks.cyandream.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;

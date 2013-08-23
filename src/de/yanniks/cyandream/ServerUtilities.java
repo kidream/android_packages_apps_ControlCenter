@@ -1,8 +1,8 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
-import static de.yanniks.cm_updatechecker.CommonUtilities.SERVER_URL;
-import static de.yanniks.cm_updatechecker.CommonUtilities.TAG;
-import static de.yanniks.cm_updatechecker.CommonUtilities.displayMessage;
+import static de.yanniks.cyandream.CommonUtilities.SERVER_URL;
+import static de.yanniks.cyandream.CommonUtilities.TAG;
+import static de.yanniks.cyandream.CommonUtilities.displayMessage;
 
 import java.io.IOException;
 import java.io.OutputStream;

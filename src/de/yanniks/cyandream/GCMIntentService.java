@@ -1,7 +1,7 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
-import static de.yanniks.cm_updatechecker.CommonUtilities.SENDER_ID;
-import static de.yanniks.cm_updatechecker.CommonUtilities.displayMessage;
+import static de.yanniks.cyandream.CommonUtilities.SENDER_ID;
+import static de.yanniks.cyandream.CommonUtilities.displayMessage;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;

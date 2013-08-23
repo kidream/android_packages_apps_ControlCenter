@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/item3" android:title="Push Einstellungen" android:icon="@drawable/cloudicon" android:showAsAction="always"></item>
     <item android:id="@+id/item1" android:title="@string/refresh" android:icon="@drawable/ic_refresh" android:showAsAction="always" android:visible="true"></item>
-    <item android:id="@+id/item2" android:title="JellyBelly-HD Download" android:icon="@drawable/ic_refresh" android:showAsAction="never" android:visible="false"></item>
-
 </menu>

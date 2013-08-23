@@ -5,9 +5,11 @@
     <string name="current">Aktuelle Version: </string>
     <string name="refresh">Aktualisieren</string>
     <string name="wait">Bitte warten...</string>
+    <string name="updatesavalibale">Updates verfügbar!</string>
+    <string name="noupdates">ROM aktuell!</string>
     <string name="ready">Neue Build online!</string>
     <string name="waittext">Sollte die Wartezeit länger als 10 Sekunden sein, prüfe bitte deine Netzwerkverbindung!</string>
-    <string name="version">Fehler beim Auslesen der Build</string>
+    <string name="version">Fehler beim Bearbeiten der Anfrage.</string>
     <string name="delold">Heruntergeladene Datei löschen</string>
     <string name="downloadnew">Aktuelle Version laden (alte Datei vorher löschen!)</string>
     <string name="flashfile">Geladene Version automatisch installieren</string>

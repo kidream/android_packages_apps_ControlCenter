@@ -1,62 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent"
-   android:orientation="vertical" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+        android:id="@+id/space"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@+id/installedversion"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="@string/version"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/rss"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="@string/installed" />
- 
-   <TextView
-       android:id="@+id/installedversion"
-       android:layout_width="fill_parent"
-       android:layout_height="60dp"
-       android:text="@string/version" />
+        android:onClick="downloadnew"
+        android:text="@string/updmenu" />
+    
+    <TextView
+        android:id="@+id/rss"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.73" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/current"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/current" />
     
-   <WebView
-       android:id="@+id/updatecheck"
-       android:layout_width="238dp"
-       android:layout_height="wrap_content" />
-   
-       <TextView android:id="@+id/rss" android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/installed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/installed" />
 
-   <TextView
-       android:id="@+id/textView3"
-       android:layout_width="wrap_content"
-       android:layout_height="30dp"
-       android:text="" />
-   
-   
-
-   <Button
-       android:id="@+id/button1"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:onClick="downloadnew"
-       android:text="@string/updmenu" />
-   
-   <Button
-       android:id="@+id/button2"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:onClick="buildbotdb"
-       android:text="@string/buildbotdb" />
-   
-   <Button
-       android:id="@+id/button3"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:onClick="cmchanges"
-       android:text="CM-Changes" />
- 
 </LinearLayout>

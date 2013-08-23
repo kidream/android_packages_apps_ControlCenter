@@ -12,14 +12,18 @@
     http://commonsware.com/Android
 */
 
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
+
+import java.io.File;
 
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class DownloadNew extends FragmentActivity {
   @Override
@@ -43,7 +47,9 @@ public class DownloadNew extends FragmentActivity {
   }
 
 	public void delete (final View view) {
-  	startActivity (new Intent (this,delold.class));
+        File file = new File("/storage/emulated/legacy/Download/cm-current.zip");
+        boolean deleted = file.delete();
+        Toast.makeText(DownloadNew.this, getString(R.string.deleted), Toast.LENGTH_LONG).show();
 	}
 	public void flash (final View view) {
 	  	startActivity (new Intent (this,flashupdate.class));

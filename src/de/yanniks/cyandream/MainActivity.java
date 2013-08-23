@@ -1,8 +1,8 @@
-package de.yanniks.cm_updatechecker;
+package de.yanniks.cyandream;
 
-import static de.yanniks.cm_updatechecker.CommonUtilities.DISPLAY_MESSAGE_ACTION;
-import static de.yanniks.cm_updatechecker.CommonUtilities.EXTRA_MESSAGE;
-import static de.yanniks.cm_updatechecker.CommonUtilities.SENDER_ID;
+import static de.yanniks.cyandream.CommonUtilities.DISPLAY_MESSAGE_ACTION;
+import static de.yanniks.cyandream.CommonUtilities.EXTRA_MESSAGE;
+import static de.yanniks.cyandream.CommonUtilities.SENDER_ID;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
