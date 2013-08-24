@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="buildbotdb">Open Copy Buildbot folder (maybe with errors)</string>
-    <string name="app_name">UpdateChecker</string>
+    <string name="updatechecker">UpdateChecker</string>
+    <string name="app_name">Control Center</string>
     <string name="installedver">1.0</string>
     <string name="version">Internal app error.</string>
     <string name="installed">Installed version: </string>
@@ -10,6 +11,7 @@
     <string name="wait">Please wait...</string>
     <string name="current">Current version: </string>
     <string name="ready">New build online!</string>
+    <string name="changelog">Changelog</string>
     <string name="updatesavalibale">Updates available!</string>
     <string name="noupdates">ROM up to date!</string>
     <string name="delold">Delete downloaded file</string>
@@ -27,14 +29,4 @@
     <string name="gcm_unregistered">device successfully unregistered!</string>
     <string name="gcm_message">you got message!</string>
     <string name="updated">current version updated!</string>
-    <string name="whyuser">Why my username?</string>
-    <string name="gcm_error">error (%1$s).</string>
-    <string name="gcm_recoverable_error">recoverable error (%1$s).</string>
-    <string name="gcm_deleted">server deleted %1$d pending messages!</string>
-    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on UpdateChecker Server.</string>
-    <string name="server_registered">From UpdateChecker Server: successfully added device!</string>
-    <string name="server_unregistered">From UpdateChecker Server: successfully removed device!</string>
-    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
-    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
-    <string name="list_cm_changes">CM-Changes</string>
 </resources>

@@ -1,4 +1,4 @@
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,6 +10,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,6 +34,7 @@ public class UpdateChecker extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updatecheck);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     	if (android.os.Build.VERSION.SDK_INT > 9) {
     		StrictMode.ThreadPolicy policy = 
     		        new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -76,6 +78,16 @@ public class UpdateChecker extends Activity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
+        	{
+        	       switch (item.getItemId()) 
+        	        {
+        	        case android.R.id.home: 
+        	            onBackPressed();
+        	            break;
+
+        	        default:
+        	}
+        	}
             if(item.getItemId() == R.id.item1){
                 try {
                 	mTextView = (TextView) findViewById(R.id.current);

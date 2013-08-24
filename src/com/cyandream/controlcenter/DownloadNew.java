@@ -12,7 +12,7 @@
     http://commonsware.com/Android
 */
 
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
 import java.io.File;
 

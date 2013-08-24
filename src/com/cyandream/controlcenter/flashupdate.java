@@ -1,4 +1,4 @@
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

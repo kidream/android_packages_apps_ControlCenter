@@ -1,6 +1,7 @@
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
-import de.yanniks.cyandream.R;
+import com.cyandream.controlcenter.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;

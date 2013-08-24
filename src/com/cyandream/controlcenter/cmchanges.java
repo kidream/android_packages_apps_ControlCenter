@@ -1,6 +1,7 @@
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
-import de.yanniks.cyandream.R;
+import com.cyandream.controlcenter.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -13,7 +14,7 @@ public class cmchanges extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview);
     	mWebView = (WebView) findViewById(R.id.webview);
-    	mWebView.loadUrl("http://yanniks.de/roms/cm10-changes.php");
+    	mWebView.loadUrl("http://yanniks.de/roms/cd-changes.php?device=" + android.os.Build.PRODUCT);
         mWebView.setInitialScale(110);
     }
 }

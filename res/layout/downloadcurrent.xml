@@ -30,13 +30,11 @@
   
   <Button
     android:id="@+id/query"
-    android:text=""
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:enabled="false"
   />
   <Button android:id="@+id/view"
-    android:text=""
     android:layout_width="0dp"
     android:layout_height="0dp"
   />

@@ -1,4 +1,4 @@
-package de.yanniks.cyandream;
+package com.cyandream.controlcenter;
 
 import android.app.AlertDialog;
 import android.content.Context;

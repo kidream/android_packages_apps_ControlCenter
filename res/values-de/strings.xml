@@ -3,10 +3,12 @@
     <string name="buildbotdb">Copy Ordner des Buildbots öffnen (evtl. mit Fehlern)</string>
     <string name="installed">Installierte Version: </string>
     <string name="current">Aktuelle Version: </string>
+    <string name="app_name">Kommandozentrale</string>
     <string name="refresh">Aktualisieren</string>
     <string name="wait">Bitte warten...</string>
     <string name="updatesavalibale">Updates verfügbar!</string>
     <string name="noupdates">ROM aktuell!</string>
+    <string name="changelog">Changelog</string>
     <string name="ready">Neue Build online!</string>
     <string name="waittext">Sollte die Wartezeit länger als 10 Sekunden sein, prüfe bitte deine Netzwerkverbindung!</string>
     <string name="version">Fehler beim Bearbeiten der Anfrage.</string>
@@ -25,13 +27,4 @@
     <string name="whyuser">Warum mein Nutzername?</string>
     <string name="gcm_message">Nachricht!</string>
     <string name="updated">Aktuelle Version aktualisiert!</string>
-    <string name="gcm_error">error (%1$s).</string>
-    <string name="gcm_recoverable_error">Fehler (%1$s).</string>
-    <string name="gcm_deleted">Server %1$d Nachrichten gelöscht!</string>
-    <string name="server_registering">Versuche Gerät zu registrieren (Versuch %1$d/%2$d).</string>
-    <string name="server_registered">Vom UpdateChecker Server: Gerät erfolgreich registriert!</string>
-    <string name="server_unregistered">Vom UpdateChecker Server: Gerät erfolgreich abgemeldet!</string>
-    <string name="server_register_error">Konnte nicht auf Server nach %1$d Versuchen registrieren.</string>
-    <string name="server_unregister_error">Konnte nicht auf Server registrieren: (%1$s)</string>
-    <string name="list_cm_changes">CyanogenMod-Changes</string>
 </resources>
