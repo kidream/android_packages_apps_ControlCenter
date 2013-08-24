@@ -16,16 +16,15 @@ package com.cyandream.controlcenter;
 
 import java.io.File;
 
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.StrictMode;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Toast;
 
-public class DownloadNew extends FragmentActivity {
+public class DownloadNew extends Activity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
