@@ -6,3 +6,7 @@ LOCAL_PACKAGE_NAME := ControlCenter
 LOCAL_CERTIFICATE := platform
 include $(BUILD_PACKAGE)
 
+LOCAL_STATIC_JAVA_LIBRARIES := androidsupport
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES += androidsupport:libs/android-support-v4.jar
+
+include $(BUILD_MULTI_PREBUILT)
