@@ -98,8 +98,8 @@ private void startDownload(View v) {
     req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI
                                    | DownloadManager.Request.NETWORK_MOBILE)
        .setAllowedOverRoaming(false)
-       .setTitle("Lade aktuelle ROM")
-       .setDescription("Neue CM Build wird geladen...")
+       .setTitle(getString(R.string.loadingcurrentrom))
+       .setDescription(getString(R.string.gettingnewbuild))
        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "cyandream-current.zip");
 
     lastDownload=mgr.enqueue(req);

@@ -4,7 +4,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.storage.StorageManager;
 
 public class flashupdate extends Activity {
     /** Called when the activity is first created. */
@@ -21,7 +24,7 @@ public class flashupdate extends Activity {
            DataOutputStream os = new DataOutputStream(p.getOutputStream());  
            os.writeBytes("mkdir -p /cache/recovery\n");  
            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
-           os.writeBytes("echo '--update_package=/sdcard/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
+           os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
            os.writeBytes("reboot recovery\n");  
            os.flush();  
            try {  

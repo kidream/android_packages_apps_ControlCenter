@@ -27,4 +27,7 @@
     <string name="whyuser">Warum mein Nutzername?</string>
     <string name="gcm_message">Nachricht!</string>
     <string name="updated">Aktuelle Version aktualisiert!</string>
+    
+    <string name="loadingcurrentrom">Lade aktuelle ROM</string>
+    <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
 </resources>
