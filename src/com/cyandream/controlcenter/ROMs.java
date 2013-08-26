@@ -14,6 +14,6 @@ public class ROMs extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roms);
     	mWebView = (WebView) findViewById(R.id.dropbox);
-    	mWebView.loadUrl("http://yanniks.de/roms/cm-buildbot-ace");
+    	mWebView.loadUrl("http://yanniks.de/roms/cd-uc-" + android.os.Build.PRODUCT);
     }
 }

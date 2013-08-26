@@ -21,7 +21,7 @@ public class flashupdate extends Activity {
            DataOutputStream os = new DataOutputStream(p.getOutputStream());  
            os.writeBytes("mkdir -p /cache/recovery\n");  
            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
-           os.writeBytes("echo '--update_package=/sdcard/Download/cm-current.zip' >> /cache/recovery/command\n");  
+           os.writeBytes("echo '--update_package=/sdcard/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
            os.writeBytes("reboot recovery\n");  
            os.flush();  
            try {  

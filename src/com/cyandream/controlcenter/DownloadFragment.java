@@ -100,7 +100,7 @@ private void startDownload(View v) {
        .setAllowedOverRoaming(false)
        .setTitle("Lade aktuelle ROM")
        .setDescription("Neue CM Build wird geladen...")
-       .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "cm-current.zip");
+       .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "cyandream-current.zip");
 
     lastDownload=mgr.enqueue(req);
 
