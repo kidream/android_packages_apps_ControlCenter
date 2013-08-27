@@ -85,7 +85,7 @@ public class DownloadFragment extends Fragment implements
       queryStatus(v);
     }
     else if (v == start) {
-      deleteOld();
+//      deleteOld();
       startDownload(v);
     }
     else {

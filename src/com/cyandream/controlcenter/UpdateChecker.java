@@ -10,6 +10,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import de.yanniks.updatez.Install;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -68,6 +70,27 @@ public class UpdateChecker extends Activity {
     }
     	public void downloadnew (final View view) {
         	startActivity (new Intent (this,DownloadNew.class));
+    	}
+
+    	public void updatez (final View view) {
+    		try
+    	        {
+    	            Runtime rt = Runtime.getRuntime();
+    	            Process proc = rt.exec("ls -all");
+
+    	            proc = rt.exec("sh /data/data/com.cyandream.controlcenter/files/bin/otaxdelta3.sh x /sdcard/Download/cyandream-current.zip /sdcard/updateZ/patch.zip /sdcard/updateZ/update-cyandream.zip");
+    	            InputStream is = proc.getInputStream();
+    	            InputStreamReader isr = new InputStreamReader(is);
+    	            BufferedReader br = new BufferedReader(isr);
+    	            String line;
+
+    	       while ((line = br.readLine()) != null) {
+    	         System.out.println(line);
+    	       }
+    	           } catch (Throwable t)
+    	          {
+    	            t.printStackTrace();
+    	          }
     	}
         @Override
         public boolean onCreateOptionsMenu (Menu menu) {
