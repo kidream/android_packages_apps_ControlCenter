@@ -14,6 +14,10 @@
 
 package com.cyandream.controlcenter;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+
 import android.app.DownloadManager;
 import android.app.Fragment;
 import android.content.BroadcastReceiver;
@@ -65,6 +69,7 @@ public class DownloadFragment extends Fragment implements
     f.addAction(DownloadManager.ACTION_NOTIFICATION_CLICKED);
 
     getActivity().registerReceiver(onEvent, f);
+    getActivity().registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
   }
 
   @Override
@@ -80,6 +85,7 @@ public class DownloadFragment extends Fragment implements
       queryStatus(v);
     }
     else if (v == start) {
+      deleteOld();
       startDownload(v);
     }
     else {
@@ -87,8 +93,13 @@ public class DownloadFragment extends Fragment implements
     }
   }
 
+private void deleteOld() {
+    File file = new File("/storage/emulated/legacy/Download/cyandream-current.zip");
+    boolean deleted = file.delete();
+}
+  
 private void startDownload(View v) {
-    Uri uri=Uri.parse("http://yanniks.de/roms/cm-10.1-ace");
+    Uri uri=Uri.parse("http://yanniks.de/roms/cd-uc-" + android.os.Build.PRODUCT);
 
     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                .mkdirs();
@@ -169,6 +180,37 @@ private void startDownload(View v) {
     return(msg);
   }
 
+  BroadcastReceiver onComplete=new BroadcastReceiver() {
+	    public void onReceive(Context ctxt, Intent intent) {
+	        // flash commands from CMUpdater
+	        Process p;  
+	        try {  
+	            // Preform su to get root privledges  
+	            p = Runtime.getRuntime().exec("su");   
+	           
+	            // Performing commands for flashing...
+	            DataOutputStream os = new DataOutputStream(p.getOutputStream());  
+	            os.writeBytes("mkdir -p /cache/recovery\n");  
+	            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
+	            os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
+	            os.writeBytes("reboot recovery\n");  
+	            os.flush();  
+	            try {  
+	               p.waitFor();  
+	                    if (p.exitValue() != 255) {  
+	                       // TODO Code to run on success  
+	                    }  
+	                    else {  
+	                        // TODO Code to run on unsuccessful  
+	                    }  
+	            } catch (InterruptedException e) {  
+	               // TODO Code to run in interrupted exception  
+	            }  
+	         } catch (IOException e) {  
+	            // TODO Code to run in input/output exception  
+	         }  
+	    }
+	};
   private BroadcastReceiver onEvent=new BroadcastReceiver() {
     public void onReceive(Context ctxt, Intent i) {
       if (DownloadManager.ACTION_NOTIFICATION_CLICKED.equals(i.getAction())) {
