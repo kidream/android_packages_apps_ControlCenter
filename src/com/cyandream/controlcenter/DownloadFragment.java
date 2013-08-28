@@ -99,7 +99,7 @@ private void deleteOld() {
 }
   
 private void startDownload(View v) {
-    Uri uri=Uri.parse("http://yanniks.de/roms/cd-uc-" + android.os.Build.PRODUCT);
+    Uri uri=Uri.parse("http://yanniks.de/roms/cd-download/" + android.os.Build.PRODUCT);
 
     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                .mkdirs();
