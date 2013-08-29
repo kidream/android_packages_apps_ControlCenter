@@ -34,13 +34,6 @@
     </intent-filter>
     </activity>
     <activity android:name=".updatechecker.flashupdate" />
-    <activity android:name=".updatechecker.settings.PreferencesActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.BROWSABLE" />
-    </intent-filter>
-    </activity>
     <activity android:name=".updatechecker.splash.SplashScreen" android:label="@string/updatechecker" >   
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
