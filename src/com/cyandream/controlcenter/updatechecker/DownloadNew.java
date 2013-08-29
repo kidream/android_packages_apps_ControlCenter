@@ -12,9 +12,11 @@
     http://commonsware.com/Android
 */
 
-package com.cyandream.controlcenter;
+package com.cyandream.controlcenter.updatechecker;
 
 import java.io.File;
+
+import com.cyandream.controlcenter.R;
 
 import android.app.Activity;
 import android.app.DownloadManager;

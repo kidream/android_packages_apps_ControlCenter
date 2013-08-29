@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="buildbotdb">Copy Ordner des Buildbots öffnen (evtl. mit Fehlern)</string>
     <string name="installed">Installierte Version: </string>
     <string name="current">Aktuelle Version: </string>
     <string name="app_name">Kommandozentrale</string>
@@ -10,24 +9,18 @@
     <string name="noupdates">ROM aktuell!</string>
     <string name="changelog">Changelog</string>
     <string name="ready">Neue Build online!</string>
-    <string name="waittext">Sollte die Wartezeit länger als 10 Sekunden sein, prüfe bitte deine Netzwerkverbindung!</string>
     <string name="version">Fehler beim Bearbeiten der Anfrage.</string>
     <string name="delold">Heruntergeladene Datei löschen</string>
     <string name="downloadnew">Aktuelle Version laden (alte Datei vorher löschen!)</string>
     <string name="flashfile">Geladene Version automatisch installieren</string>
     <string name="updmenu">Updatemenü</string>
-    <string name="notnew">Zu alte Version oder nicht meine CM-Builds installiert</string>
     <string name="deleted">Gelöscht! :-)</string>
-    <string name="explwhyuser">Natürlich steht es dir frei, deinen Nutzernamen einzutragen. Falls du allerdings \'\Sonderwünsche\'\ hast, z.B. die Möglichkeit, bestimmte Benachrichtigungen zusätzlich zu bestellen, bzw. abzubestellen, dann musst du dieses Feld ausfüllen. So habe ich später die Möglichkeit, dein Gerät dir zuzuordnen und deine Push-Benachrichtigungen zu personalisieren. Ein nachträgliches Hinzufügen des Namens ist derzeit nicht möglich, das Entfernen allerdings schon. Natürlich werden deine Daten vertraulich behandelt und nicht weitergegeben. Weitere Informationen findest du im HTC Desire HD CyanogenMod 10.1 Thread auf Android-Hilfe.de .</string>
     <string name="menu_settings">Einstellungen</string>
-    <string name="title_activity_main">Push Notifications</string>
-    <string name="already_registered">Gerät bereits auf Server registriert.</string>
-    <string name="gcm_registered">Gerät erfolgreich reserviert!</string>
-    <string name="gcm_unregistered">device successfully unregistered!</string>
-    <string name="whyuser">Warum mein Nutzername?</string>
-    <string name="gcm_message">Nachricht!</string>
-    <string name="updated">Aktuelle Version aktualisiert!</string>
-    
+    <string name="updated">Aktuelle Version aktualisieren...</string>
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
     <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
+    
+    <string name="save">Speichern</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="nightlies">Nach Nightlies suchen</string>
 </resources>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyandream.controlcenter"
-    android:versionCode="1"
-    android:versionName="@string/installedver" >
+    android:versionCode="2" >
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -18,37 +17,45 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="com.cyandream.controlcenter.UpdateChecker"
+            android:name="com.cyandream.controlcenter.updatechecker.UpdateChecker"
             android:label="@string/updatechecker"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
             android:hardwareAccelerated="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true" >
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="updatechecker" android:host="" />
-    </intent-filter>
-        </activity>
+            android:excludeFromRecents="true" />
         <activity 
-            android:name=".downloadcurrent" >
+            android:name=".updatechecker.downloadcurrent" >
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data android:scheme="updatechecker" android:host="download" />
-    </intent-filter> </activity>
-    <activity android:name=".flashupdate" />
-    <activity android:name="de.yanniks.updatez.Install" />
-    <activity android:name=".cmchanges" android:label="@string/changelog" >
+    </intent-filter>
+    </activity>
+    <activity android:name=".updatechecker.flashupdate" />
+    <activity android:name=".updatechecker.settings.PreferencesActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.BROWSABLE" />
+    </intent-filter>
+    </activity>
+    <activity android:name=".updatechecker.splash.SplashScreen" android:label="@string/updatechecker" >   
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="http://" android:host="updatechecker.yanniks.de" />
+    </intent-filter>
+    </activity>
+    <activity android:name=".updatechecker.cmchanges" android:label="@string/changelog" >
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.BROWSABLE" />
     </intent-filter>
         </activity>
-    <activity android:name=".DownloadNew" android:label="@string/updmenu" />
+    <activity android:name=".updatechecker.DownloadNew" android:label="@string/updmenu" />
     </application>
 </manifest>

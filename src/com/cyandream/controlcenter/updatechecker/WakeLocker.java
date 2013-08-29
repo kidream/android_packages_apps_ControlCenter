@@ -1,4 +1,4 @@
-package com.cyandream.controlcenter;
+package com.cyandream.controlcenter.updatechecker;
 
 import android.content.Context;
 import android.os.PowerManager;

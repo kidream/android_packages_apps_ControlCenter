@@ -1,4 +1,4 @@
-package com.cyandream.controlcenter;
+package com.cyandream.controlcenter.updatechecker;
 
 import com.cyandream.controlcenter.R;
 

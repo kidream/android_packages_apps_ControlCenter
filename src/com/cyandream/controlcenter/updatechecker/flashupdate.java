@@ -1,4 +1,4 @@
-package com.cyandream.controlcenter;
+package com.cyandream.controlcenter.updatechecker;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

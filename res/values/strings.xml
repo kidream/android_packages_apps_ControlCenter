@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="buildbotdb">Open Copy Buildbot folder (maybe with errors)</string>
     <string name="updatechecker">UpdateChecker</string>
     <string name="app_name">Control Center</string>
-    <string name="installedver">1.0</string>
-    <string name="version">Internal app error.</string>
+    <string name="cyandream">CyanDream</string>
     <string name="installed">Installed version: </string>
     <string name="refresh">Refresh</string>
-    <string name="waittext">If you\'re waiting longer than 10 seconds, please check your network connection!</string>
     <string name="wait">Please wait...</string>
     <string name="current">Current version: </string>
     <string name="ready">New build online!</string>
@@ -17,13 +14,14 @@
     <string name="delold">Delete downloaded file</string>
     <string name="downloadnew">Download new version (delete old version first!)</string>
     <string name="flashfile">Flash downloaded version</string>
-    <string name="explwhyuser">Of cause it\'\s not required to enter your username. But if you have got any \'\special needs\'\ e.g. the possibility to order special notifications you will have to fill in the gap. Otherwise I won\'\t have the possibility to identify your device and you won\'\t be able to use this services. Entering your username later is not possible but I can remove it for you if you wish. Of cause I won\'\t give your data to others. You will find more information on the HTC Desire HD CyanogenMod 10.1 thread on Android-Hilfe.de (german forum).</string>
     <string name="updmenu">Update menu</string>
     <string name="deleted">Deleted! :-)</string>
-    <string name="nothing">nothing ;-)</string>
-        <string name="menu_settings">Settings</string>
-    <string name="updated">current version updated!</string>
-    
+    <string name="menu_settings">Settings</string>
+    <string name="updated">updating current version...</string>
     <string name="loadingcurrentrom">Loading current ROM</string>
     <string name="gettingnewbuild">Downloading new CyanDream build...</string>
+
+    <string name="releases">Releases</string>
+    <string name="releases_summary">Select if you want stable releases or nightlies</string>
+     
 </resources>
