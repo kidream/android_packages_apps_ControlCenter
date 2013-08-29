@@ -39,7 +39,7 @@
         <action android:name="android.intent.action.VIEW" />
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="http://" android:host="updatechecker.yanniks.de" />
+        <data android:scheme="http://" android:host="yanniks.de/updatechecker" />
     </intent-filter>
     </activity>
     <activity android:name=".updatechecker.cmchanges" android:label="@string/changelog" >
