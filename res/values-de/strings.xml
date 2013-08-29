@@ -20,7 +20,4 @@
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
     <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
     
-    <string name="save">Speichern</string>
-    <string name="reset">Zurücksetzen</string>
-    <string name="nightlies">Nach Nightlies suchen</string>
 </resources>

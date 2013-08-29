@@ -20,8 +20,5 @@
     <string name="updated">updating current version...</string>
     <string name="loadingcurrentrom">Loading current ROM</string>
     <string name="gettingnewbuild">Downloading new CyanDream build...</string>
-
-    <string name="releases">Releases</string>
-    <string name="releases_summary">Select if you want stable releases or nightlies</string>
      
 </resources>
