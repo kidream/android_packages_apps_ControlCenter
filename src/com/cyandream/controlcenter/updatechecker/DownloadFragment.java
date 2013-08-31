@@ -14,9 +14,7 @@
 
 package com.cyandream.controlcenter.updatechecker;
 
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.IOException;
 
 import com.cyandream.controlcenter.R;
 

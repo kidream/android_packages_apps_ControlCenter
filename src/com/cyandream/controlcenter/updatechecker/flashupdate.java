@@ -4,10 +4,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.storage.StorageManager;
 
 public class flashupdate extends Activity {
     /** Called when the activity is first created. */
