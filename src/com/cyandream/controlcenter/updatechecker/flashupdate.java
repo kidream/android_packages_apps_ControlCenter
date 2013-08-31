@@ -25,6 +25,7 @@ public class flashupdate extends Activity {
            os.writeBytes("mkdir -p /cache/recovery\n");  
            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
            os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
+           os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");  
            os.writeBytes("reboot recovery\n");  
            os.flush();  
            try {  
