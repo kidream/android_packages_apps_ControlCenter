@@ -5,7 +5,7 @@
     <string name="app_name">Kommandozentrale</string>
     <string name="refresh">Aktualisieren</string>
     <string name="wait">Bitte warten...</string>
-    <string name="updatesavalibale">Updates verfügbar!</string>
+    <string name="updatesavalibale">Update verfügbar!</string>
     <string name="noupdates">ROM aktuell!</string>
     <string name="changelog">Changelog</string>
     <string name="ready">Neue Build online!</string>
@@ -20,4 +20,6 @@
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
     <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
     
+    <string name="notifupdate">CyanDream-Update verfügbar</string>
+    <string name="getit">Hol es dir jetzt!</string>
 </resources>

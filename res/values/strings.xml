@@ -9,7 +9,7 @@
     <string name="current">Current version: </string>
     <string name="ready">New build online!</string>
     <string name="changelog">Changelog</string>
-    <string name="updatesavalibale">Updates available!</string>
+    <string name="updatesavalibale">Update available!</string>
     <string name="noupdates">ROM up to date!</string>
     <string name="delold">Delete downloaded file</string>
     <string name="downloadnew">Download new version (delete old version first!)</string>
@@ -20,5 +20,7 @@
     <string name="updated">updating current version...</string>
     <string name="loadingcurrentrom">Loading current ROM</string>
     <string name="gettingnewbuild">Downloading new CyanDream build...</string>
-     
+    
+    <string name="notifupdate">CyanDream update availbable</string>
+    <string name="getit">Get it now!</string>
 </resources>
