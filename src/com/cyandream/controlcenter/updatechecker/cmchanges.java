@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -46,6 +47,7 @@ public void onReceivedError(WebView view, int errorCode,
   String description, String failingUrl) {
  // TODO Auto-generated method stub
  super.onReceivedError(view, errorCode, description, failingUrl);
+ mWebView.loadUrl("file:///android_asset/error.html");
  try{
   _dialog.dismiss();
  }catch (Exception e) {
