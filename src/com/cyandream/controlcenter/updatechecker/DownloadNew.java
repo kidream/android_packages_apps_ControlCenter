@@ -49,7 +49,8 @@ public class DownloadNew extends Activity {
 
 	public void delete (final View view) {
         File file = new File("/storage/emulated/legacy/Download/cyandream-current.zip");
-        boolean deleted = file.delete();
+        @SuppressWarnings("unused")
+		boolean deleted = file.delete();
         Toast.makeText(DownloadNew.this, getString(R.string.deleted), Toast.LENGTH_LONG).show();
 	}
 	public void flash (final View view) {

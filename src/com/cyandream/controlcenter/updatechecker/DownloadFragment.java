@@ -95,7 +95,8 @@ public class DownloadFragment extends Fragment implements
 
 private void deleteOld() {
     File file = new File("/storage/emulated/legacy/Download/cyandream-current.zip");
-    boolean deleted = file.delete();
+    @SuppressWarnings("unused")
+	boolean deleted = file.delete();
 }
   
 private void startDownload(View v) {
