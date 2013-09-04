@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="local">de</string>
+    
     <string name="installed">Installierte Version: </string>
     <string name="current">Aktuelle Version: </string>
     <string name="app_name">Kommandozentrale</string>
