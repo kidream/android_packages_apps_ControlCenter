@@ -5,7 +5,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.cyandream.controlcenter.R;
 import com.cyandream.controlcenter.updatechecker.splash.SplashScreen;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +19,7 @@ public class UpdateChecker extends Activity {
     /** Called when the activity is first created. */
     private TextView mTextView, mTextView2;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    @SuppressLint("NewApi")
-	@Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updatecheck);
@@ -46,8 +44,7 @@ public class UpdateChecker extends Activity {
             return super.onCreateOptionsMenu(menu);
         }  
 
-        @SuppressLint("NewApi")
-		@Override
+        @Override
         public boolean onOptionsItemSelected(MenuItem item) {
         	{
         	       switch (item.getItemId()) 
