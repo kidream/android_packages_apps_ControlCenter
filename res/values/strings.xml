@@ -13,6 +13,7 @@
     <string name="changelog">Changelog</string>
     <string name="updatesavalibale">Update available!</string>
     <string name="noupdates">ROM up to date!</string>
+    <string name="version">Error processing the request.</string>
     <string name="delold">Delete downloaded file</string>
     <string name="downloadnew">Download new version (delete old version first!)</string>
     <string name="flashfile">Flash downloaded version</string>
