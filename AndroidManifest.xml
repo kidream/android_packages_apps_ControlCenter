@@ -4,7 +4,7 @@
     android:versionCode="3" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="18"
         android:targetSdkVersion="18" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
  	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -24,16 +24,6 @@
             android:hardwareAccelerated="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:excludeFromRecents="true" />
-        <activity 
-            android:name=".updatechecker.downloadcurrent" >
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="updatechecker" android:host="download" />
-    </intent-filter>
-    </activity>
-    <activity android:name=".updatechecker.flashupdate" />
     <activity android:name=".updatechecker.splash.SplashScreen" android:label="@string/updatechecker" >   
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -49,6 +39,5 @@
         <category android:name="android.intent.category.BROWSABLE" />
     </intent-filter>
         </activity>
-    <activity android:name=".updatechecker.DownloadNew" android:label="@string/updmenu" />
     </application>
 </manifest>

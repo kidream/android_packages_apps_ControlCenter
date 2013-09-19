@@ -12,10 +12,11 @@
     <string name="changelog">Changelog</string>
     <string name="ready">Neue Build online!</string>
     <string name="version">Fehler beim Bearbeiten der Anfrage.</string>
-    <string name="delold">Heruntergeladene Datei löschen</string>
-    <string name="downloadnew">Aktuelle Version laden (alte Datei vorher löschen!)</string>
+    <string name="downloadnew">Aktuelle Version laden</string>
     <string name="flashfile">Geladene Version automatisch installieren</string>
     <string name="updmenu">Updatemenü</string>
+    <string name="filesize">Keine Dateigröße verfügbar.</string>
+    <string name="size">Updategröße:</string>
     <string name="deleted">Gelöscht! :-)</string>
     <string name="menu_settings">Einstellungen</string>
     <string name="updated">Aktuelle Version aktualisieren...</string>

@@ -23,12 +23,21 @@
         android:layout_height="30dp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/start"
         android:layout_width="250dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:onClick="downloadnew"
-        android:text="@string/updmenu" />
+        android:onClick="startdl"
+        android:text="@string/downloadnew" />
+
+    <TextView
+        android:id="@+id/filesize"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:text="@string/filesize"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <TextView
         android:id="@+id/rss"
@@ -47,5 +56,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/installed" />
+    
+      <Button
+    android:id="@+id/query"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:enabled="false"
+  />
+  <Button android:id="@+id/view"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+  />
 
 </LinearLayout>
