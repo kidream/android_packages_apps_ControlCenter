@@ -1,8 +1,10 @@
 package com.cyandream.controlcenter.updatechecker;
 
-import java.io.DataOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -11,6 +13,9 @@ import com.cyandream.controlcenter.updatechecker.splash.SplashScreen;
 
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +47,6 @@ public class UpdateChecker extends Activity {
     	Intent i = getIntent();
     	String currentversion = i.getStringExtra("currentversion");
     	String size = i.getStringExtra("size");
-    	String filename = i.getStringExtra("filename");
     	String compare = i.getStringExtra("compare");
     	Button button = (Button) findViewById(R.id.start);
     	String installupdate = i.getStringExtra("installupdate");
@@ -68,7 +72,9 @@ public class UpdateChecker extends Activity {
       }
       
       public void startDownload() {
-        Uri uri=Uri.parse("http://yanniks.de/roms/cd-download/" + android.os.Build.PRODUCT );
+      	Intent i = getIntent();
+      	String filename = i.getStringExtra("filename");
+        Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".patch" );
         
         Environment
           .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
@@ -82,7 +88,7 @@ public class UpdateChecker extends Activity {
                       .setTitle(getString(R.string.loadingcurrentrom))
                       .setDescription(getString(R.string.gettingnewbuild))
                       .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,
-                                                         "cyandream-current.zip"));
+                                                         filename + ".patch"));
         
         findViewById(R.id.query).setEnabled(true);
       }
@@ -132,22 +138,26 @@ public class UpdateChecker extends Activity {
       
       BroadcastReceiver onComplete=new BroadcastReceiver() {
         public void onReceive(Context ctxt, Intent intent) {
-        	Process p;  
-            try {  
+        	createzip(null);
+        	delfile(null);
+        	delfile2(null);
+        	notification(null);
+//        	Process p;  
+//           try {  
                // Preform su to get root privledges  
-               p = Runtime.getRuntime().exec("su");   
-              
-               // Performing commands for flashing...
-               DataOutputStream os = new DataOutputStream(p.getOutputStream());  
-               os.writeBytes("mkdir -p /cache/recovery\n");  
-               os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
-               os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
-               os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");  
-               os.writeBytes("reboot recovery\n");  
-               os.flush();  
-            } catch (IOException e) {  
+//               p = Runtime.getRuntime().exec("su");   
+//              
+//               // Performing commands for flashing...
+//               DataOutputStream os = new DataOutputStream(p.getOutputStream());  
+//               os.writeBytes("mkdir -p /cache/recovery\n");  
+//               os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
+//               os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
+//               os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");  
+//               os.writeBytes("reboot recovery\n");  
+//               os.flush();  
+//            } catch (IOException e) {  
                 // TODO Code to run in input/output exception  
-             }  
+//             }  
           findViewById(R.id.start).setEnabled(true);
         }
       };
@@ -158,10 +168,55 @@ public class UpdateChecker extends Activity {
       	startDownload();
         button.setEnabled(false);
       }
+      public void notification (final View view) {
+         	Intent i = getIntent();
+          	String filename = i.getStringExtra("filename");
+    	  NotificationManager nm=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+    	  Notification notification=new Notification(R.drawable.ic_launcher, getString(R.string.notifupdate), System.currentTimeMillis());
+    	  Context context=UpdateChecker.this;
+    	  CharSequence title=getString(R.string.prepared);
+    	  CharSequence detail=getString(R.string.notifdetail1) + " " + filename + getString(R.string.notifdetail2);
+    	  Intent intent=new Intent(context,Reboot.class);
+    	  PendingIntent  pending=PendingIntent.getActivity(context, 0, intent, 0);
+    	  notification.setLatestEventInfo(context, title, detail, pending);
+    	  nm.notify(0, notification);
+      }
       public void delfile (final View view) {
-    	  File file = new File("/storage/emulated/legacy/Download/cyandream-current.zip");
+       	Intent i = getIntent();
+      	String filename = i.getStringExtra("filename");
+    	  File file = new File("/storage/emulated/0/Download/" + filename + ".patch");
           @SuppressWarnings("unused")
     		boolean deleted = file.delete();
+      }
+      public void delfile2 (final View view) {
+         	Intent i = getIntent();
+        	String upgradefrom = i.getStringExtra("upgradefrom");
+      	  File file = new File("/storage/emulated/0/Download/" + upgradefrom + ".zip");
+            @SuppressWarnings("unused")
+      		boolean deleted = file.delete();
+        }
+      public void createzip (final View view) {
+         	Intent i = getIntent();
+        	String upgradefrom = i.getStringExtra("upgradefrom");
+        	String filename = i.getStringExtra("filename");
+            Runtime rt = Runtime.getRuntime();
+            Process proc;
+			try {
+				proc = rt.exec("ls -all");
+
+            proc = rt.exec("xdelta3 -d -s " + "/storage/emulated/0/Download/" + upgradefrom + " " + "/storage/emulated/0/Download/" + filename + ".patch " + "/storage/emulated/0/Download/" + filename + ".zip");
+            InputStream is = proc.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+
+       while ((line = br.readLine()) != null) {
+         System.out.println(line);
+       }
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
       }
         @Override
         public boolean onCreateOptionsMenu (Menu menu) {

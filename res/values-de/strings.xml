@@ -23,6 +23,8 @@
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
     <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
     
-    <string name="notifupdate">CyanDream-Update verfügbar</string>
-    <string name="getit">Hol es dir jetzt!</string>
+    <string name="notifupdate">Gute Nachrichten!</string>
+    <string name="prepared">Update vorbereitet!</string>
+    <string name="notifdetail1">Installiere</string>
+    <string name="notifdetail2">.zip übers Recovery!</string>
 </resources>

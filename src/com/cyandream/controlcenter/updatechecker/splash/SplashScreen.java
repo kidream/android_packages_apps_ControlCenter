@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class SplashScreen extends Activity {
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    String version, size, installupdate, filename, compare;
+    String version, size, installupdate, filename, compare, upgradefrom;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,7 @@ public class SplashScreen extends Activity {
 					installupdate = jObj.getString("installupdate");
 					filename = jObj.getString("filename");
 					compare = jObj.getString("compare");
+					upgradefrom = jObj.getString("upgradefrom");
 
 					Log.e("Current version: ", version + ", " + size + ", install update: " + installupdate);
 
@@ -85,6 +86,7 @@ public class SplashScreen extends Activity {
 			i.putExtra("installupdate", installupdate);
 			i.putExtra("filename", filename);
 			i.putExtra("compare", compare);
+			i.putExtra("upgradefrom", upgradefrom);
 			startActivity(i);
 			finish();
 		}
