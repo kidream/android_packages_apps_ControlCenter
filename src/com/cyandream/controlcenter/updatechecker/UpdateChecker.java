@@ -49,7 +49,9 @@ public class UpdateChecker extends Activity {
     	Intent i = getIntent();
     	String currentversion = i.getStringExtra("currentversion");
     	String size = i.getStringExtra("size");
+    	String otasize = i.getStringExtra("otasize");
     	String filename = i.getStringExtra("filename");
+    	String upgradefrom = i.getStringExtra("upgradefrom");
     	String installupdate = i.getStringExtra("installupdate");
     	Button button = (Button) findViewById(R.id.start);
         if (installupdate.equalsIgnoreCase("false")) {
@@ -67,8 +69,19 @@ public class UpdateChecker extends Activity {
     	mTextView = (TextView) findViewById(R.id.current);
     	mTextView2 = (TextView) findViewById(R.id.installed);
     	sizetext = (TextView) findViewById(R.id.filesize);
+        if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
+        	sizetext.setText("");
+        } else {
+            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+            InputStream is;
+            try {
+                is = new FileInputStream(f);
+                sizetext.setText(getString(R.string.size) + " " + otasize + " MB");
+            } catch (FileNotFoundException ex) {
+            	sizetext.setText(getString(R.string.size) + " " + size + " MB");
+            }
+        }
         mTextView.setText(getString(R.string.current) + " " + currentversion);
-        sizetext.setText(getString(R.string.size) + " " + size);
         mTextView2.setText(getString(R.string.installed) + " " + android.os.Build.VERSION.INCREMENTAL);
         ((TextView)findViewById(R.id.installedversion)).setText(android.os.Build.VERSION.INCREMENTAL.equals(currentversion) ? getString(R.string.noupdates) : getString(R.string.updatesavalibale));
         mgr=(DownloadManager)getSystemService(DOWNLOAD_SERVICE);

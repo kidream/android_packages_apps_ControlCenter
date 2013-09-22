@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class SplashScreen extends Activity {
 	SharedPreferences preferences;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    String version, size, installupdate, filename, upgradefrom;
+    String version, size, installupdate, filename, upgradefrom, otasize;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class SplashScreen extends Activity {
 							.getJSONObject("rominfo");
 					version = jObj.getString("version");
 					size = jObj.getString("size");
+					otasize = jObj.getString("otasize");
 					installupdate = jObj.getString("installupdate");
 					filename = jObj.getString("filename");
 					upgradefrom = jObj.getString("upgradefrom");
@@ -101,6 +102,7 @@ public class SplashScreen extends Activity {
 								.getJSONObject("rominfo");
 						version = jObj.getString("version");
 						size = jObj.getString("size");
+						otasize = jObj.getString("otasize");
 						installupdate = jObj.getString("installupdate");
 						filename = jObj.getString("filename");
 						upgradefrom = jObj.getString("upgradefrom");
@@ -125,6 +127,7 @@ public class SplashScreen extends Activity {
 			Intent i = new Intent(SplashScreen.this, UpdateChecker.class);
 			i.putExtra("currentversion", version);
 			i.putExtra("size", size);
+			i.putExtra("otasize", otasize);
 			i.putExtra("installupdate", installupdate);
 			i.putExtra("filename", filename);
 			i.putExtra("upgradefrom", upgradefrom);
