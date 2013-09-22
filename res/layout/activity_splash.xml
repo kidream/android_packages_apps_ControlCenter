@@ -22,7 +22,6 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/updated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

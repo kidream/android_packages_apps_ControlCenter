@@ -21,16 +21,10 @@
     <string name="menu_settings">Einstellungen</string>
     <string name="updated">Aktuelle Version aktualisieren...</string>
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
-    <string name="install">Version erneut installieren</string>
     <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
     
     <string name="notifupdate">Gute Nachrichten!</string>
     <string name="prepared">Update vorbereitet!</string>
-    <string name="flashnow">Möchtest du das Update jetzt installieren?</string>
-    <string name="yes">Ja</string>
-    <string name="no">Nein</string>
-    
-    <string name="settings">Einstellungen</string>
-    <string name="buildtype">Nightly-Builds</string>
-    <string name="buildtype_desc">Bitte wähle ob du nach Nightly-Builds suchen möchtest.</string>
+    <string name="notifdetail1">Installiere</string>
+    <string name="notifdetail2">.zip übers Recovery!</string>
 </resources>

@@ -7,28 +7,24 @@ import com.cyandream.controlcenter.updatechecker.UpdateChecker;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SplashScreen extends Activity {
-	SharedPreferences preferences;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    String version, size, installupdate, filename, upgradefrom;
+    String version, size, installupdate, filename, compare, upgradefrom;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-	    preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		new PrefetchData().execute();
+		
 		// Some code copyright by androidhive.info
 
 	}
@@ -39,14 +35,11 @@ public class SplashScreen extends Activity {
 			super.onPreExecute();
 			// before making http calls
 			Log.e("JSON", "Pre execute");
+
 		}
 
 		@Override
 		protected Void doInBackground(Void... arg0) {
-			Boolean nightly = preferences.getBoolean("nightly", false);
-			
-			if(!nightly) {
-				String usenightly = "-release";
 			/*
 			 * Will make http call here This call will download required data
 			 * before launching the app 
@@ -59,7 +52,7 @@ public class SplashScreen extends Activity {
 			 */
 			JsonParser jsonParser = new JsonParser();
 			String json = jsonParser
-					.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
+					.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + ".json" );
 			if (json != null) {
 				try {
 					JSONObject jObj = new JSONObject(json)
@@ -68,6 +61,7 @@ public class SplashScreen extends Activity {
 					size = jObj.getString("size");
 					installupdate = jObj.getString("installupdate");
 					filename = jObj.getString("filename");
+					compare = jObj.getString("compare");
 					upgradefrom = jObj.getString("upgradefrom");
 
 					Log.e("Current version: ", version + ", " + size + ", install update: " + installupdate);
@@ -80,42 +74,6 @@ public class SplashScreen extends Activity {
 			}
 
 			return null;
-			} else {
-				String usenightly = "";
-				/*
-				 * Will make http call here This call will download required data
-				 * before launching the app 
-				 * example: 
-				 * 1. Downloading and storing SQLite 
-				 * 2. Downloading images 
-				 * 3. Parsing the xml / json 
-				 * 4. Sending device information to server 
-				 * 5. etc.,
-				 */
-				JsonParser jsonParser = new JsonParser();
-				String json = jsonParser
-						.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
-				if (json != null) {
-					try {
-						JSONObject jObj = new JSONObject(json)
-								.getJSONObject("rominfo");
-						version = jObj.getString("version");
-						size = jObj.getString("size");
-						installupdate = jObj.getString("installupdate");
-						filename = jObj.getString("filename");
-						upgradefrom = jObj.getString("upgradefrom");
-
-						Log.e("Current version: ", version + ", " + size + ", install update: " + installupdate);
-
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				}
-
-				return null;
-			}
 		}
 
 
@@ -127,6 +85,7 @@ public class SplashScreen extends Activity {
 			i.putExtra("size", size);
 			i.putExtra("installupdate", installupdate);
 			i.putExtra("filename", filename);
+			i.putExtra("compare", compare);
 			i.putExtra("upgradefrom", upgradefrom);
 			startActivity(i);
 			finish();
