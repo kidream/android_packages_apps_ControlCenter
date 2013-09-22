@@ -76,9 +76,9 @@ public class UpdateChecker extends Activity {
             InputStream is;
             try {
                 is = new FileInputStream(f);
-                sizetext.setText(getString(R.string.size) + " " + otasize + " MB");
+                sizetext.setText(getString(R.string.size) + " " + otasize);
             } catch (FileNotFoundException ex) {
-            	sizetext.setText(getString(R.string.size) + " " + size + " MB");
+            	sizetext.setText(getString(R.string.size) + " " + size);
             }
         }
         mTextView.setText(getString(R.string.current) + " " + currentversion);
