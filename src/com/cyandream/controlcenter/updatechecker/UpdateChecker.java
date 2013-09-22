@@ -1,7 +1,10 @@
 package com.cyandream.controlcenter.updatechecker;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,12 +15,11 @@ import com.cyandream.controlcenter.R;
 import com.cyandream.controlcenter.updatechecker.splash.SplashScreen;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DownloadManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
@@ -47,12 +49,21 @@ public class UpdateChecker extends Activity {
     	Intent i = getIntent();
     	String currentversion = i.getStringExtra("currentversion");
     	String size = i.getStringExtra("size");
-    	String compare = i.getStringExtra("compare");
-    	Button button = (Button) findViewById(R.id.start);
+    	String filename = i.getStringExtra("filename");
     	String installupdate = i.getStringExtra("installupdate");
-    	if( installupdate == compare ) {
+    	Button button = (Button) findViewById(R.id.start);
+        if (installupdate.equalsIgnoreCase("false")) {
             button.setEnabled(false);
+        }
+        if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
+            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
+            InputStream is;
+            try {
+                is = new FileInputStream(f);
+                button.setText(R.string.install);
+            } catch (FileNotFoundException ex) {
             }
+        }
     	mTextView = (TextView) findViewById(R.id.current);
     	mTextView2 = (TextView) findViewById(R.id.installed);
     	sizetext = (TextView) findViewById(R.id.filesize);
@@ -72,10 +83,9 @@ public class UpdateChecker extends Activity {
       }
       
       public void startDownload() {
-      	Intent i = getIntent();
-      	String filename = i.getStringExtra("filename");
-        Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".patch" );
-        
+        Intent i = getIntent();
+        String filename = i.getStringExtra("filename");
+        Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".zip" );
         Environment
           .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
           .mkdirs();
@@ -88,11 +98,32 @@ public class UpdateChecker extends Activity {
                       .setTitle(getString(R.string.loadingcurrentrom))
                       .setDescription(getString(R.string.gettingnewbuild))
                       .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,
-                                                         filename + ".patch"));
+                                                         filename + ".zip"));
         
         findViewById(R.id.query).setEnabled(true);
       }
-      
+
+      public void startDownloadOTA() {
+          Intent i = getIntent();
+          String filename = i.getStringExtra("filename");
+          Uri uri=Uri.parse("http://yauniks.dynvpn.de:85/jenkins/mirror/" + filename + ".patch" );
+          Environment
+            .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            .mkdirs();
+          
+          lastDownload=
+            mgr.enqueue(new DownloadManager.Request(uri)
+                        .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI |
+                                                DownloadManager.Request.NETWORK_MOBILE)
+                        .setAllowedOverRoaming(false)
+                        .setTitle(getString(R.string.loadingcurrentrom))
+                        .setDescription(getString(R.string.gettingnewbuild))
+                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,
+                                                           filename + ".patch"));
+          
+          findViewById(R.id.query).setEnabled(true);
+        }
+
       public void queryStatus(View v) {
         Cursor c=mgr.query(new DownloadManager.Query().setFilterById(lastDownload));
         
@@ -141,57 +172,84 @@ public class UpdateChecker extends Activity {
         	createzip(null);
         	delfile(null);
         	delfile2(null);
-        	notification(null);
-//        	Process p;  
-//           try {  
-               // Preform su to get root privledges  
-//               p = Runtime.getRuntime().exec("su");   
-//              
-//               // Performing commands for flashing...
-//               DataOutputStream os = new DataOutputStream(p.getOutputStream());  
-//               os.writeBytes("mkdir -p /cache/recovery\n");  
-//               os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");  
-//               os.writeBytes("echo '--update_package=/sdcard/0/Download/cyandream-current.zip' >> /cache/recovery/command\n");  
-//               os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");  
-//               os.writeBytes("reboot recovery\n");  
-//               os.flush();  
-//            } catch (IOException e) {  
-                // TODO Code to run in input/output exception  
-//             }  
+        	flashupdate(null); 
           findViewById(R.id.start).setEnabled(true);
         }
       };
 
       public void startdl (final View view) {
-    	delfile(view);
     	Button button = (Button) findViewById(R.id.start);
-      	startDownload();
         button.setEnabled(false);
-      }
-      public void notification (final View view) {
-         	Intent i = getIntent();
-          	String filename = i.getStringExtra("filename");
-    	  NotificationManager nm=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-    	  Notification notification=new Notification(R.drawable.ic_launcher, getString(R.string.notifupdate), System.currentTimeMillis());
-    	  Context context=UpdateChecker.this;
-    	  CharSequence title=getString(R.string.prepared);
-    	  CharSequence detail=getString(R.string.notifdetail1) + " " + filename + getString(R.string.notifdetail2);
-    	  Intent intent=new Intent(context,Reboot.class);
-    	  PendingIntent  pending=PendingIntent.getActivity(context, 0, intent, 0);
-    	  notification.setLatestEventInfo(context, title, detail, pending);
-    	  nm.notify(0, notification);
+    	Intent i = getIntent();
+    	String upgradefrom = i.getStringExtra("upgradefrom");
+    	String filename = i.getStringExtra("filename");
+        File f2 = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
+        InputStream is2;
+        try {
+            is2 = new FileInputStream(f2);
+        	createzip(null);
+        	delfile(null);
+        	delfile2(null);
+        	flashupdate(null); 
+          findViewById(R.id.start).setEnabled(true);
+        } catch (FileNotFoundException ex1) {
+          File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+          InputStream is;
+          try {
+          	is = new FileInputStream(f);
+          	startDownloadOTA();
+          } catch (FileNotFoundException ex) {
+          	startDownload();
+          }
+        }
       }
       public void delfile (final View view) {
        	Intent i = getIntent();
       	String filename = i.getStringExtra("filename");
-    	  File file = new File("/storage/emulated/0/Download/" + filename + ".patch");
+    	  File file = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".patch");
           @SuppressWarnings("unused")
     		boolean deleted = file.delete();
+      }
+      public void flashupdate (final View view) {
+          new AlertDialog.Builder(this)
+          .setIcon(android.R.drawable.ic_dialog_alert)
+          .setTitle(R.string.prepared)
+          .setMessage(R.string.flashnow)
+          .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+              @Override
+              public void onClick(DialogInterface dialog, int which) {
+                  flashupdate2(null);   
+              }
+
+          })
+          .setNegativeButton(R.string.no, null)
+          .show();
+        }
+      public void flashupdate2 (final View view) {
+    	        Process process = null;
+    	        try {
+    	            Intent i = getIntent();
+    	            String filename = i.getStringExtra("filename");
+    	            process = Runtime.getRuntime().exec("su");
+    	            DataOutputStream os = new DataOutputStream(process.getOutputStream());
+    	            os = new DataOutputStream(process.getOutputStream());
+    	            os.writeBytes("mkdir -p /cache/recovery\n");
+    	            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");
+    	            os.writeBytes("echo '--update_package=/sdcard/0/Download/" + filename + ".zip' >> /cache/recovery/command\n");
+    	            os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");
+    	            os.writeBytes("reboot recovery\n");
+    	            os.writeBytes("exit\n");
+    	            os.flush();
+    	        } catch (IOException e) {
+                    Toast.makeText(UpdateChecker.this, "Error: Reboot failed!", Toast.LENGTH_LONG).show();
+    	            e.printStackTrace();
+    	    }
       }
       public void delfile2 (final View view) {
          	Intent i = getIntent();
         	String upgradefrom = i.getStringExtra("upgradefrom");
-      	  File file = new File("/storage/emulated/0/Download/" + upgradefrom + ".zip");
+      	  File file = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
             @SuppressWarnings("unused")
       		boolean deleted = file.delete();
         }
@@ -201,10 +259,14 @@ public class UpdateChecker extends Activity {
         	String filename = i.getStringExtra("filename");
             Runtime rt = Runtime.getRuntime();
             Process proc;
+            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+            InputStream is2;
+            try {
+                is2 = new FileInputStream(f);
 			try {
 				proc = rt.exec("ls -all");
 
-            proc = rt.exec("xdelta3 -d -s " + "/storage/emulated/0/Download/" + upgradefrom + " " + "/storage/emulated/0/Download/" + filename + ".patch " + "/storage/emulated/0/Download/" + filename + ".zip");
+            proc = rt.exec("xdelta3 -d -s " + Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom + " " + Environment.getExternalStorageDirectory() + "/Download/" + filename + ".patch " + Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
             InputStream is = proc.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
@@ -217,6 +279,8 @@ public class UpdateChecker extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            } catch (FileNotFoundException ex) {
+            }
       }
         @Override
         public boolean onCreateOptionsMenu (Menu menu) {
@@ -230,6 +294,10 @@ public class UpdateChecker extends Activity {
         	{
         	       switch (item.getItemId()) 
         	        {
+        	        case R.id.item2:
+        	            Intent intent = new Intent(this, Preferences.class);
+        	            startActivity(intent);
+        	            return true;
         	        case android.R.id.home: 
         	            onBackPressed();
         	            break;

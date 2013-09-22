@@ -32,6 +32,7 @@
         <data android:scheme="http://" android:host="yanniks.de/updatechecker" />
     </intent-filter>
     </activity>
+    <activity android:name="com.cyandream.controlcenter.updatechecker.Preferences" android:label="@string/settings" />
     <activity android:name=".updatechecker.cmchanges" android:label="@string/changelog" >
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
