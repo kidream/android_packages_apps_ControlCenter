@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/item1" android:title="@string/refresh" android:icon="@drawable/ic_refresh" android:showAsAction="always" android:visible="true" />
+    <item android:id="@+id/item2" android:title="@string/settings" android:icon="@android:drawable/ic_menu_add" android:showAsAction="never" android:visible="true" />
 </menu>
