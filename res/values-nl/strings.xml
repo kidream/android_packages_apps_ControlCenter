@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="local">nl</string>
+    
+    <string name="app_name">Controle Center</string>
+    <string name="installed">Geinstalleerde versie: </string>
+    <string name="refresh">Verversen</string>
+    <string name="wait">Een ogenblik geduld..</string>
+    <string name="current">Actuele versie: </string>
+    <string name="ready">Nieuwe versie beschikbaar!</string>
+    <string name="changelog">Changelog</string>
+    <string name="updatesavalibale">Update Beschikbaar !</string>
+    <string name="noupdates">ROM up to date!</string>
+    <string name="version">Fout tijdens het verzenden van het verzoek.</string>
+    <string name="downloadnew">Nieuwe versie downloaden</string>
+    <string name="flashfile">Flash gedownloade versie</string>
+    <string name="updmenu">Update menu</string>
+    <string name="filesize">Grootte van ROM niet beschikbaar.</string>
+    <string name="size">Update grootte:</string>
+    <string name="deleted">Verwijderd :D</string>
+    <string name="menu_settings">Instellingen</string>
+    <string name="updated">Actuele versie updaten...</string>
+    <string name="loadingcurrentrom">Actuele ROM laden..</string>
+    <string name="gettingnewbuild">Nieuwe CyanDream versie downloaden...</string>
+    <string name="install">Versie her-installeren</string>
+    
+    <string name="notifupdate">Good nieuws!</string>
+    <string name="prepared">Update gereed!</string>
+    <string name="flashnow">Wilt u de update nu flashen?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
+    
+    <string name="settings">Instellingen</string>
+    <string name="buildtype">Nightly builds</string>
+    <string name="buildtype_desc">Klik hier als u wilt zoeken naar nightlies</string>
+</resources>
