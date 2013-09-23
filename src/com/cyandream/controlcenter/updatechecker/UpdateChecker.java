@@ -58,7 +58,7 @@ public class UpdateChecker extends Activity {
             button.setEnabled(false);
         }
         if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
-            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
+            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".zip");
             InputStream is;
             try {
                 is = new FileInputStream(f);
@@ -72,7 +72,7 @@ public class UpdateChecker extends Activity {
         if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
         	sizetext.setText("");
         } else {
-            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
             InputStream is;
             try {
                 is = new FileInputStream(f);
@@ -196,7 +196,7 @@ public class UpdateChecker extends Activity {
     	Intent i = getIntent();
     	String upgradefrom = i.getStringExtra("upgradefrom");
     	String filename = i.getStringExtra("filename");
-        File f2 = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
+        File f2 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".zip");
         InputStream is2;
         try {
             is2 = new FileInputStream(f2);
@@ -206,7 +206,7 @@ public class UpdateChecker extends Activity {
         	flashupdate(null); 
           findViewById(R.id.start).setEnabled(true);
         } catch (FileNotFoundException ex1) {
-          File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+          File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
           InputStream is;
           try {
           	is = new FileInputStream(f);
@@ -219,7 +219,7 @@ public class UpdateChecker extends Activity {
       public void delfile (final View view) {
        	Intent i = getIntent();
       	String filename = i.getStringExtra("filename");
-    	  File file = new File(Environment.getExternalStorageDirectory() + "/Download/" + filename + ".patch");
+    	  File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".patch");
           @SuppressWarnings("unused")
     		boolean deleted = file.delete();
       }
@@ -262,7 +262,7 @@ public class UpdateChecker extends Activity {
       public void delfile2 (final View view) {
          	Intent i = getIntent();
         	String upgradefrom = i.getStringExtra("upgradefrom");
-      	  File file = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+      	  File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
             @SuppressWarnings("unused")
       		boolean deleted = file.delete();
         }
@@ -272,14 +272,14 @@ public class UpdateChecker extends Activity {
         	String filename = i.getStringExtra("filename");
             Runtime rt = Runtime.getRuntime();
             Process proc;
-            File f = new File(Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom);
+            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
             InputStream is2;
             try {
                 is2 = new FileInputStream(f);
 			try {
 				proc = rt.exec("ls -all");
 
-            proc = rt.exec("xdelta3 -d -s " + Environment.getExternalStorageDirectory() + "/Download/" + upgradefrom + " " + Environment.getExternalStorageDirectory() + "/Download/" + filename + ".patch " + Environment.getExternalStorageDirectory() + "/Download/" + filename + ".zip");
+            proc = rt.exec("xdelta3 -d -s " + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom + " " + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".patch " + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".zip");
             InputStream is = proc.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
