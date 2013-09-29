@@ -247,10 +247,6 @@ public class UpdateChecker extends Activity {
     	            process = Runtime.getRuntime().exec("su");
     	            DataOutputStream os = new DataOutputStream(process.getOutputStream());
     	            os = new DataOutputStream(process.getOutputStream());
-    	            os.writeBytes("mkdir -p /cache/recovery\n");
-    	            os.writeBytes("echo 'boot-recovery' > /cache/recovery/command\n");
-    	            os.writeBytes("echo '--update_package=/sdcard/0/Download/" + filename + ".zip' >> /cache/recovery/command\n");
-    	            os.writeBytes("echo '--update_package=/sdcard/0/Download/gapps-current.zip' >> /cache/recovery/command\n");
     	            os.writeBytes("reboot recovery\n");
     	            os.writeBytes("exit\n");
     	            os.flush();
