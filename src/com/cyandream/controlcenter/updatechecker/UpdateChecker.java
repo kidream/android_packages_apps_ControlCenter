@@ -69,6 +69,12 @@ public class UpdateChecker extends Activity {
     	mTextView = (TextView) findViewById(R.id.current);
     	mTextView2 = (TextView) findViewById(R.id.installed);
     	sizetext = (TextView) findViewById(R.id.filesize);
+            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename + ".zip");
+            InputStream is;
+            try {
+                is = new FileInputStream(f);
+        	sizetext.setText("");
+            } catch (FileNotFoundException ex) {
         if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
         	sizetext.setText("");
         } else {
@@ -80,6 +86,7 @@ public class UpdateChecker extends Activity {
             } catch (FileNotFoundException ex) {
             	sizetext.setText(getString(R.string.size) + " " + size);
             }
+        }
         }
         mTextView.setText(getString(R.string.current) + " " + currentversion);
         mTextView2.setText(getString(R.string.installed) + " " + android.os.Build.VERSION.INCREMENTAL);
