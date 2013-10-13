@@ -78,12 +78,12 @@ public class UpdateChecker extends Activity {
         if (currentversion.equalsIgnoreCase(android.os.Build.VERSION.INCREMENTAL)) {
         	sizetext.setText("");
         } else {
-            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
-            InputStream is;
+            File f2 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + upgradefrom);
+            InputStream is2;
             try {
-                is = new FileInputStream(f);
+                is2 = new FileInputStream(f2);
                 sizetext.setText(getString(R.string.size) + " " + otasize);
-            } catch (FileNotFoundException ex) {
+            } catch (FileNotFoundException ex1) {
             	sizetext.setText(getString(R.string.size) + " " + size);
             }
         }
