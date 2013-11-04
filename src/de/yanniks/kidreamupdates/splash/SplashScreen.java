@@ -1,9 +1,8 @@
-package com.cyandream.controlcenter.updatechecker.splash;
+package de.yanniks.kidreamupdates.splash;
 
-import com.cyandream.controlcenter.lib.JsonParser;
-
-import com.cyandream.controlcenter.R;
-import com.cyandream.controlcenter.updatechecker.UpdateChecker;
+import de.yanniks.kidreamupdates.R;
+import de.yanniks.kidreamupdates.UpdateChecker;
+import de.yanniks.kidreamupdates.lib.JsonParser;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
@@ -59,7 +57,7 @@ public class SplashScreen extends Activity {
 			 */
 			JsonParser jsonParser = new JsonParser();
 			String json = jsonParser
-					.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
+					.getJSONFromUrl("http://yanniks.de/roms/kd-" + android.os.Build.PRODUCT + usenightly + ".json" );
 			if (json != null) {
 				try {
 					JSONObject jObj = new JSONObject(json)
@@ -95,7 +93,7 @@ public class SplashScreen extends Activity {
 				 */
 				JsonParser jsonParser = new JsonParser();
 				String json = jsonParser
-						.getJSONFromUrl("http://yanniks.de/roms/cd-" + android.os.Build.PRODUCT + usenightly + ".json" );
+						.getJSONFromUrl("http://yanniks.de/roms/kd-" + android.os.Build.PRODUCT + usenightly + ".json" );
 				if (json != null) {
 					try {
 						JSONObject jObj = new JSONObject(json)

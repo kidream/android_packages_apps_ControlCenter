@@ -22,7 +22,7 @@
     <string name="updated">Aktuelle Version aktualisieren...</string>
     <string name="loadingcurrentrom">Lade aktuelle ROM</string>
     <string name="install">Version erneut installieren</string>
-    <string name="gettingnewbuild">Neue CyanDream Build wird geladen...</string>
+    <string name="gettingnewbuild">Neue KiDream Build wird geladen...</string>
     
     <string name="notifupdate">Gute Nachrichten!</string>
     <string name="prepared">Update vorbereitet!</string>

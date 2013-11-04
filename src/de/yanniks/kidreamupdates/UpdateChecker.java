@@ -1,4 +1,4 @@
-package com.cyandream.controlcenter.updatechecker;
+package de.yanniks.kidreamupdates;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -11,8 +11,7 @@ import java.io.InputStreamReader;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.cyandream.controlcenter.R;
-import com.cyandream.controlcenter.updatechecker.splash.SplashScreen;
+import de.yanniks.kidreamupdates.splash.SplashScreen;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -41,7 +40,8 @@ public class UpdateChecker extends Activity {
 	private DownloadManager mgr=null;
 	private long lastDownload=-1L;;
 	DefaultHttpClient httpclient = new DefaultHttpClient();
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updatecheck);
@@ -197,7 +197,8 @@ public class UpdateChecker extends Activity {
         }
       };
 
-      public void startdl (final View view) {
+      @SuppressWarnings("unused")
+	public void startdl (final View view) {
     	Button button = (Button) findViewById(R.id.start);
         button.setEnabled(false);
     	Intent i = getIntent();
@@ -246,7 +247,8 @@ public class UpdateChecker extends Activity {
           .setNegativeButton(R.string.no, null)
           .show();
         }
-      public void flashupdate2 (final View view) {
+      @SuppressWarnings("unused")
+	public void flashupdate2 (final View view) {
     	        Process process = null;
     	        try {
     	            Intent i = getIntent();
@@ -269,7 +271,8 @@ public class UpdateChecker extends Activity {
             @SuppressWarnings("unused")
       		boolean deleted = file.delete();
         }
-      public void createzip (final View view) {
+      @SuppressWarnings("unused")
+	public void createzip (final View view) {
          	Intent i = getIntent();
         	String upgradefrom = i.getStringExtra("upgradefrom");
         	String filename = i.getStringExtra("filename");

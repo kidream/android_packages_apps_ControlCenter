@@ -1,10 +1,5 @@
-Control Center for CyanDream
+###Control Center for KiDream
 
 
 
-This is the Control Center developed for the CyanDream ROM. CyanDream is available for the following devices:
-HTC Desire HD (ace)
-HTC One (m7ul)
-LG Nexus 4 (mako)
-Samsung Galaxy Nexus (maguro)
-Samsung Galaxy Note II (n7100)
+This is the Control Center developed for the KiDream ROM. See (https://github.com/kidream/android)[this page] for more information.

@@ -4,7 +4,7 @@
     
     <string name="updatechecker">UpdateChecker</string>
     <string name="app_name">Control Center</string>
-    <string name="cyandream">CyanDream</string>
+    <string name="kidream">KiDream</string>
     <string name="installed">Installed version: </string>
     <string name="refresh">Refresh</string>
     <string name="wait">Please wait...</string>
@@ -23,7 +23,7 @@
     <string name="menu_settings">Settings</string>
     <string name="updated">updating current version...</string>
     <string name="loadingcurrentrom">Loading current ROM</string>
-    <string name="gettingnewbuild">Downloading new CyanDream build...</string>
+    <string name="gettingnewbuild">Downloading new KiDream build...</string>
     <string name="install">Reinstall version</string>
     
     <string name="notifupdate">Good news!</string>

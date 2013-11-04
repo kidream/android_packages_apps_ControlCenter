@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyandream.controlcenter"
+    package="de.yanniks.kidreamupdates"
     android:versionCode="3" >
 
     <uses-sdk
         android:minSdkVersion="18"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
  	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -17,14 +17,14 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="com.cyandream.controlcenter.updatechecker.UpdateChecker"
+            android:name="de.yanniks.kidreamupdates.UpdateChecker"
             android:label="@string/updatechecker"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
             android:hardwareAccelerated="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:excludeFromRecents="true" />
-    <activity android:name=".updatechecker.splash.SplashScreen" android:label="@string/updatechecker" >   
+    <activity android:name=".splash.SplashScreen" android:label="@string/updatechecker" >   
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <action android:name="android.intent.action.MAIN" />
@@ -32,8 +32,8 @@
         <data android:scheme="http://" android:host="yanniks.de/updatechecker" />
     </intent-filter>
     </activity>
-    <activity android:name="com.cyandream.controlcenter.updatechecker.Preferences" android:label="@string/settings" />
-    <activity android:name=".updatechecker.cmchanges" android:label="@string/changelog" >
+    <activity android:name="de.yanniks.kidreamupdates.Preferences" android:label="@string/settings" />
+    <activity android:name=".cmchanges" android:label="@string/changelog" >
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <action android:name="android.intent.action.MAIN" />

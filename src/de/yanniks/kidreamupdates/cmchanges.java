@@ -1,6 +1,4 @@
-package com.cyandream.controlcenter.updatechecker;
-
-import com.cyandream.controlcenter.R;
+package de.yanniks.kidreamupdates;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -29,7 +27,7 @@ public class cmchanges extends Activity {
 		if(!nightly) {
 			String usenightly = "-release";
 	    	mWebView = (WebView) findViewById(R.id.webview);
-	    	mWebView.loadUrl("http://yanniks.de/roms/cd-changes.php?device=" + android.os.Build.PRODUCT + usenightly);
+	    	mWebView.loadUrl("http://yanniks.de/roms/kd-changes.php?device=" + android.os.Build.PRODUCT + usenightly);
 	        mWebView.setInitialScale(110);
 	        mWebView.setBackgroundColor(0x00000000); 
 	        mWebView.setWebViewClient(new WebViewClient(){
@@ -63,7 +61,7 @@ public void onReceivedError(WebView view, int errorCode,
 		} else {
 			String usenightly = "";
 	    	mWebView = (WebView) findViewById(R.id.webview);
-	    	mWebView.loadUrl("http://yanniks.de/roms/cd-changes.php?device=" + android.os.Build.PRODUCT + usenightly);
+	    	mWebView.loadUrl("http://yanniks.de/roms/kd-changes.php?device=" + android.os.Build.PRODUCT + usenightly);
 	        mWebView.setInitialScale(110);
 	        mWebView.setBackgroundColor(0x00000000); 
 	        mWebView.setWebViewClient(new WebViewClient(){

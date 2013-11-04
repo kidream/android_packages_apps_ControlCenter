@@ -1,4 +1,4 @@
-package com.cyandream.controlcenter.lib;
+package de.yanniks.kidreamupdates.lib;
 
 import java.io.BufferedReader;
 import java.io.IOException;
